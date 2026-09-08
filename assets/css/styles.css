@@ -259,7 +259,7 @@ button{ font:inherit; color:inherit; border:0; background:none; cursor:pointer; 
 .nav__toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
 
 /* ---------- 6. Hero (rule 2 — gradients, never flat) ---------- */
-.hero{ position:relative; padding-block:96px 128px; overflow:hidden; background:var(--g-page); }
+.hero{ position:relative; padding-block:56px 128px; overflow:hidden; background:var(--g-page); }
 .hero__bg{ position:absolute; inset:0; pointer-events:none; }
 .orb{ position:absolute; border-radius:50%; filter:blur(72px); }
 .orb--a{ width:620px; height:620px; top:-220px; right:-140px;
@@ -713,7 +713,7 @@ button{ font:inherit; color:inherit; border:0; background:none; cursor:pointer; 
   .nav__toggle{ display:grid; }
   .nav__cta{ display:none; }
 
-  .hero{ padding-block:64px 104px; }
+  .hero{ padding-block:36px 104px; }
   .hero__inner{ grid-template-columns:1fr; }
   .hero__copy{ text-align:center; }
   .hero .lede{ margin-inline:auto; }
