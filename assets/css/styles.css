@@ -463,22 +463,6 @@ button{ font:inherit; color:inherit; border:0; background:none; cursor:pointer; 
 .feat__ico--gold{ color:var(--gold); background:var(--gold-wash); border:1px solid rgba(233,162,27,.20); }
 .feat__ico--green{ color:var(--green); background:var(--green-wash); border:1px solid rgba(18,133,95,.16); }
 
-.feat--dark{
-  background:rgba(255,255,255,.045);
-  border:1px solid rgba(255,255,255,.10);
-  border-radius:var(--r-lg);
-  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
-  box-shadow:0 20px 44px rgba(0,0,0,.24);
-}
-.feat--dark:hover{ background:rgba(255,255,255,.075); box-shadow:0 28px 60px rgba(0,0,0,.32); }
-.feat--dark h3{ color:#fff; }
-.feat--dark p{ color:#AFC1DC; }
-.feat__n{
-  display:block; margin-bottom:14px;
-  font-size:52px; font-weight:900; letter-spacing:-.05em; line-height:1;
-  background:linear-gradient(135deg,#8FC0FF,#4C8DF6);
-  -webkit-background-clip:text; background-clip:text; color:transparent;
-}
 
 /* ---------- 10. Structure ---------- */
 .struct{ display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
@@ -1078,3 +1062,139 @@ button{ font:inherit; color:inherit; border:0; background:none; cursor:pointer; 
 @media (max-width:640px){
   .tree__tag, .tree__strand{ font-size:12.5px; }
 }
+
+/* ---------- 28. Dark hero ----------
+   The new photographs are rich and dark on the left, exactly where the
+   copy sits. Veiling them white to carry dark text would wash out the
+   thing worth showing, so the hero inverts instead: photo at full
+   strength under a navy scrim, white type over it. It also picks up
+   directly from the navy navigation above. */
+.hero{ background:var(--g-dark); }
+.hero__photo{ background-position:center 42%; }
+
+.hero__scrim{
+  background:
+    linear-gradient(100deg,
+      rgba(7,18,36,.90) 0%,
+      rgba(8,22,44,.76) 32%,
+      rgba(10,28,56,.42) 60%,
+      rgba(12,34,68,.34) 100%),
+    linear-gradient(180deg,
+      rgba(7,18,36,.62) 0%,
+      rgba(8,22,44,.12) 30%,
+      rgba(10,26,50,.30) 72%,
+      #EEF3FB 100%);
+}
+
+/* Type and controls inverted for the dark ground */
+.hero h1{ color:#fff; }
+.hero .grad{
+  background:linear-gradient(120deg,#8CC2FF 0%,#5AA0FA 55%,#3D86F0 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.hero .lede{ color:#C8D8EE; }
+.hero .lede strong{ color:#fff; }
+.hero__trust li{ color:#C8D8EE; }
+.hero .tick{ color:#6FE0A8; background:rgba(111,224,168,.16); }
+
+.hero .btn--ghost{
+  color:#fff;
+  background:rgba(255,255,255,.13);
+  border-color:rgba(255,255,255,.26);
+  box-shadow:0 4px 12px rgba(4,12,26,.34);
+}
+.hero .btn--ghost:hover{ background:rgba(255,255,255,.22); box-shadow:0 10px 26px rgba(4,12,26,.42); }
+
+/* The floating chips stay light so they read as objects on the photo */
+.float{ background:rgba(255,255,255,.94); border-color:rgba(255,255,255,.9); }
+
+/* The ruled grid is invisible on navy — lighten it instead of darkening */
+.hero .grid{
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+                   linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+}
+
+@media (max-width:900px){
+  /* Copy is centred and full width, so the scrim runs top to bottom. */
+  .hero__scrim{
+    background:
+      linear-gradient(180deg,
+        rgba(7,18,36,.82) 0%,
+        rgba(8,22,44,.70) 42%,
+        rgba(10,26,50,.52) 74%,
+        #EEF3FB 100%);
+  }
+}
+
+/* ---------- 29. Dark classroom band ----------
+   Same reasoning as the hero: the photograph is too rich to veil white,
+   so the section inverts. The four note cards stay light and read as
+   objects lifted off the photo. */
+.png{ background:var(--g-dark); }
+.png__photo{ background-position:center 45%; }
+.png__scrim{
+  background:
+    linear-gradient(100deg,
+      rgba(7,18,36,.88) 0%,
+      rgba(8,22,44,.72) 34%,
+      rgba(10,28,56,.40) 62%,
+      rgba(12,34,68,.44) 100%),
+    linear-gradient(180deg,
+      #EEF3FB 0%,
+      rgba(9,24,46,.30) 14%,
+      rgba(9,24,46,.16) 50%,
+      #EEF3FB 100%);
+}
+.png__copy h2{ color:#fff; }
+.png__copy p{ color:#C1D3EC; }
+.png .eyebrow{
+  color:#9FC4FF; background:rgba(76,141,246,.18); border-color:rgba(159,196,255,.26);
+}
+
+@media (max-width:900px){
+  .png__scrim{
+    background:
+      linear-gradient(180deg,
+        #EEF3FB 0%,
+        rgba(8,22,44,.72) 12%,
+        rgba(9,24,46,.58) 60%,
+        #EEF3FB 100%);
+  }
+}
+
+/* ---------- 30. Photographs behind the dark sections ----------
+   Assessment and the closing call to action already carry white type on
+   navy, so a photograph slots in behind them without touching the copy.
+   The scrim is navy rather than white, which keeps the sea and sky
+   saturated instead of bleaching them. */
+.has-photo{ position:relative; overflow:hidden; }
+.has-photo > .shell,
+.has-photo > .cta__inner{ position:relative; z-index:2; }
+.sec__bg{ position:absolute; inset:0; pointer-events:none; z-index:0; }
+.sec__photo{
+  position:absolute; inset:0;
+  background-repeat:no-repeat; background-size:cover; background-position:center 40%;
+}
+.sec__photo--a{
+  background-image:url('../img/beach-lesson-a.jpg');
+  background-image:image-set(url('../img/beach-lesson-a.webp') type('image/webp'),
+                             url('../img/beach-lesson-a.jpg')  type('image/jpeg'));
+}
+.sec__photo--b{
+  background-image:url('../img/beach-lesson-b.jpg');
+  background-image:image-set(url('../img/beach-lesson-b.webp') type('image/webp'),
+                             url('../img/beach-lesson-b.jpg')  type('image/jpeg'));
+}
+.sec__scrim{
+  position:absolute; inset:0;
+  background:
+    linear-gradient(180deg,
+      rgba(8,20,40,.88) 0%,
+      rgba(9,24,48,.72) 40%,
+      rgba(9,24,48,.78) 100%),
+    linear-gradient(100deg,
+      rgba(7,18,36,.42) 0%,
+      rgba(8,22,44,.16) 50%,
+      rgba(10,28,56,.36) 100%);
+}
+.cta .cta__bg{ z-index:1; }
