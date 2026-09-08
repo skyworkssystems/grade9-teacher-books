@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+*.log
+
+# Original phone screenshots and cover art — kept locally, never published.
+# One of them carries a teacher's name; the web copies in assets/img are redacted.
+source-images/
+
+# Source material kept locally, not part of the published site
+Modern Website Design Golden Rules.pdf
+grade 9 english.png
+grade 9 social science.png
