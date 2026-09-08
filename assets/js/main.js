@@ -58,34 +58,6 @@
     reveals.forEach(function (el) { el.classList.add('is-in'); });
   }
 
-  /* ---------- Count-up on the stats strip ---------- */
-  var counted = false;
-  var stats = $('.stats');
-  var runCount = function () {
-    if (counted || !stats) return;
-    counted = true;
-    $$('[data-count]', stats).forEach(function (el) {
-      var target = parseInt(el.getAttribute('data-count'), 10);
-      if (isNaN(target)) return;
-      var start = null, dur = 1100;
-      var step = function (ts) {
-        if (start === null) start = ts;
-        var p = Math.min((ts - start) / dur, 1);
-        var eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.round(target * eased).toString();
-        if (p < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-    });
-  };
-  if (stats && 'IntersectionObserver' in window &&
-      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    var sio = new IntersectionObserver(function (entries) {
-      if (entries[0].isIntersecting) { runCount(); sio.disconnect(); }
-    }, { threshold: 0.4 });
-    sio.observe(stats);
-  }
-
   /* ---------- FAQ: one answer open at a time ---------- */
   var qas = $$('.qa');
   qas.forEach(function (d) {

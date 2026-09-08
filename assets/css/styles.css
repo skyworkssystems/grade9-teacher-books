@@ -259,7 +259,7 @@ button{ font:inherit; color:inherit; border:0; background:none; cursor:pointer; 
 .nav__toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
 
 /* ---------- 6. Hero (rule 2 — gradients, never flat) ---------- */
-.hero{ position:relative; padding-block:56px 128px; overflow:hidden; background:var(--g-page); }
+.hero{ position:relative; padding-block:56px 88px; overflow:hidden; background:var(--g-page); }
 .hero__bg{ position:absolute; inset:0; pointer-events:none; }
 .orb{ position:absolute; border-radius:50%; filter:blur(72px); }
 .orb--a{ width:620px; height:620px; top:-220px; right:-140px;
@@ -350,23 +350,6 @@ button{ font:inherit; color:inherit; border:0; background:none; cursor:pointer; 
 .float__v{ font-size:13px; font-weight:600; color:var(--muted); }
 
 @keyframes bob{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-9px); } }
-
-/* ---------- 7. Stats ---------- */
-.stats-wrap{ margin-top:-64px; position:relative; z-index:5; padding-bottom:24px; }
-.stats{
-  display:grid; grid-template-columns:repeat(5,1fr);
-  padding:38px 24px;
-  border-radius:var(--r-xl);
-  box-shadow:var(--sh-xl);
-}
-.stat{ text-align:center; padding:6px 16px; position:relative; }
-.stat + .stat::before{
-  content:''; position:absolute; left:0; top:14%; height:72%; width:1px; background:var(--line);
-}
-.stat__n{ display:block; font-size:clamp(30px,3vw,40px); font-weight:900; letter-spacing:-.04em;
-  color:var(--ink); line-height:1.1;
-  background:var(--g-brand); -webkit-background-clip:text; background-clip:text; color:transparent; }
-.stat__l{ display:block; margin-top:6px; font-size:14px; font-weight:600; color:var(--muted); }
 
 /* ---------- 8. Books ---------- */
 .books{ display:grid; grid-template-columns:repeat(2,1fr); gap:32px; }
@@ -692,8 +675,6 @@ button{ font:inherit; color:inherit; border:0; background:none; cursor:pointer; 
   :root{ --pad-sec:96px; }
   .hero__inner{ gap:48px; }
   .struct,.png__inner{ gap:48px; }
-  .stats{ grid-template-columns:repeat(3,1fr); gap:22px 0; }
-  .stat:nth-child(4)::before{ display:none; }
 }
 
 @media (max-width:900px){
@@ -713,7 +694,7 @@ button{ font:inherit; color:inherit; border:0; background:none; cursor:pointer; 
   .nav__toggle{ display:grid; }
   .nav__cta{ display:none; }
 
-  .hero{ padding-block:36px 104px; }
+  .hero{ padding-block:36px 72px; }
   .hero__inner{ grid-template-columns:1fr; }
   .hero__copy{ text-align:center; }
   .hero .lede{ margin-inline:auto; }
@@ -733,9 +714,6 @@ button{ font:inherit; color:inherit; border:0; background:none; cursor:pointer; 
   .section__head{ margin-bottom:44px; }
   .section__head p,.lede{ font-size:17px; }
 
-  .stats{ grid-template-columns:repeat(2,1fr); padding:28px 12px; gap:24px 0; }
-  .stat + .stat::before{ display:none; }
-  .stat:last-child{ grid-column:1 / -1; }
 
   .book__media{ padding:32px 28px 0; }
   .book__media picture{ max-width:230px; }
@@ -907,7 +885,7 @@ button{ font:inherit; color:inherit; border:0; background:none; cursor:pointer; 
                                      url('../img/hero-classroom.jpg')  type('image/jpeg'));
   background-image:image-set(url('../img/hero-classroom.webp') type('image/webp'),
                              url('../img/hero-classroom.jpg')  type('image/jpeg'));
-  opacity:.82;
+  opacity:1;
 }
 
 /* Cool-white veil: heaviest under the headline, lightest over the covers,
@@ -916,14 +894,14 @@ button{ font:inherit; color:inherit; border:0; background:none; cursor:pointer; 
   position:absolute; inset:0;
   background:
     linear-gradient(102deg,
-      rgba(248,251,255,.90) 0%,
-      rgba(248,251,255,.68) 30%,
-      rgba(246,250,255,.26) 58%,
-      rgba(240,246,255,.34) 100%),
+      rgba(248,251,255,.70) 0%,
+      rgba(248,251,255,.48) 30%,
+      rgba(246,250,255,.04) 58%,
+      rgba(240,246,255,.10) 100%),
     linear-gradient(180deg,
-      rgba(255,255,255,.42) 0%,
+      rgba(255,255,255,.14) 0%,
       rgba(255,255,255,0) 26%,
-      rgba(233,240,250,.34) 78%,
+      rgba(233,240,250,.16) 78%,
       #E9F0FA 100%);
 }
 
@@ -940,12 +918,12 @@ button{ font:inherit; color:inherit; border:0; background:none; cursor:pointer; 
   .hero__scrim{
     background:
       linear-gradient(180deg,
-        rgba(248,251,255,.88) 0%,
-        rgba(248,251,255,.70) 40%,
-        rgba(240,246,255,.56) 72%,
+        rgba(248,251,255,.72) 0%,
+        rgba(248,251,255,.54) 40%,
+        rgba(240,246,255,.38) 72%,
         #E9F0FA 100%);
   }
-  .hero__photo{ opacity:.72; background-position:center 30%; }
+  .hero__photo{ opacity:1; background-position:center 30%; }
 }
 
 /* ---------- 24. Classroom-and-coast band ----------
@@ -964,21 +942,21 @@ button{ font:inherit; color:inherit; border:0; background:none; cursor:pointer; 
                                      url('../img/classroom-coast.jpg')  type('image/jpeg'));
   background-image:image-set(url('../img/classroom-coast.webp') type('image/webp'),
                              url('../img/classroom-coast.jpg')  type('image/jpeg'));
-  opacity:.85;
+  opacity:1;
 }
 .png__scrim{
   position:absolute; inset:0;
   background:
     linear-gradient(100deg,
-      rgba(250,252,255,.93) 0%,
-      rgba(250,252,255,.74) 30%,
-      rgba(248,251,255,.32) 58%,
-      rgba(244,249,255,.40) 100%),
+      rgba(250,252,255,.76) 0%,
+      rgba(250,252,255,.52) 30%,
+      rgba(248,251,255,.06) 58%,
+      rgba(244,249,255,.12) 100%),
     linear-gradient(180deg,
       #FFFFFF 0%,
-      rgba(255,255,255,.58) 16%,
+      rgba(255,255,255,.32) 16%,
       rgba(255,255,255,0) 44%,
-      rgba(242,246,252,.28) 100%);
+      rgba(242,246,252,.14) 100%);
 }
 .png__inner{ position:relative; }
 
@@ -988,11 +966,11 @@ button{ font:inherit; color:inherit; border:0; background:none; cursor:pointer; 
     background:
       linear-gradient(180deg,
         #FFFFFF 0%,
-        rgba(255,255,255,.82) 22%,
-        rgba(250,252,255,.72) 55%,
-        rgba(244,249,255,.58) 100%);
+        rgba(255,255,255,.62) 22%,
+        rgba(250,252,255,.50) 55%,
+        rgba(244,249,255,.38) 100%);
   }
-  .png__photo{ opacity:.75; }
+  .png__photo{ opacity:1; }
 }
 
 /* ---------- 25. Footer contact ---------- */
